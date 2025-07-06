@@ -63,7 +63,7 @@ const recentActivity = [
   { id: 4, type: 'chat', title: 'Product Description', time: '5 hours ago', model: 'GPT-4' },
 ]
 
-export default function DashboardPage() {
+export default function DashboardDemoPage() {
   const [usageData, setUsageData] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -100,7 +100,7 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-bold tracking-tight">Welcome back, {profile.full_name || 'there'}!</h1>
           <p className="text-muted-foreground">Here's an overview of your AI assistant usage</p>
         </div>
-        <Link href="/dashboard/chat">
+        <Link href="/demo">
           <Button size="lg" className="gap-2">
             <MessageSquare className="h-4 w-4" />
             New Chat
@@ -273,7 +273,7 @@ export default function DashboardPage() {
                 <Badge variant="secondary">{activity.model}</Badge>
               </div>
             ))}
-            <Link href="/dashboard/chat">
+            <Link href="/demo">
               <Button variant="outline" className="w-full">View All Conversations</Button>
             </Link>
           </CardContent>
@@ -314,23 +314,9 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              {profile.subscription_status === 'free' && (
-                <div className="rounded-lg bg-primary/10 p-4">
-                  <p className="text-sm font-medium mb-2">Upgrade to Pro</p>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Get unlimited messages and access to all features
-                  </p>
-                  <Link href="/dashboard/billing">
-                    <Button className="w-full">Upgrade Now</Button>
-                  </Link>
-                </div>
-              )}
-
-              {profile.subscription_status !== 'free' && (
-                <Link href="/dashboard/billing">
-                  <Button variant="outline" className="w-full">Manage Subscription</Button>
-                </Link>
-              )}
+              <Link href="/signup">
+                <Button className="w-full">Get Started Free</Button>
+              </Link>
             </div>
           </CardContent>
         </Card>
@@ -344,30 +330,24 @@ export default function DashboardPage() {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-4">
-            <Link href="/dashboard/chat">
+            <Link href="/demo">
               <Button variant="outline" className="w-full justify-start">
                 <MessageSquare className="mr-2 h-4 w-4" />
                 New Chat
               </Button>
             </Link>
-            <Link href="/dashboard/settings">
-              <Button variant="outline" className="w-full justify-start">
-                <Zap className="mr-2 h-4 w-4" />
-                API Settings
-              </Button>
-            </Link>
-            <Link href="/dashboard/history">
-              <Button variant="outline" className="w-full justify-start">
-                <Clock className="mr-2 h-4 w-4" />
-                Chat History
-              </Button>
-            </Link>
-            <Link href="/dashboard/team">
-              <Button variant="outline" className="w-full justify-start">
-                <Users className="mr-2 h-4 w-4" />
-                Team Settings
-              </Button>
-            </Link>
+            <Button variant="outline" className="w-full justify-start" disabled>
+              <Zap className="mr-2 h-4 w-4" />
+              API Settings
+            </Button>
+            <Button variant="outline" className="w-full justify-start" disabled>
+              <Clock className="mr-2 h-4 w-4" />
+              Chat History
+            </Button>
+            <Button variant="outline" className="w-full justify-start" disabled>
+              <Users className="mr-2 h-4 w-4" />
+              Team Settings
+            </Button>
           </div>
         </CardContent>
       </Card>

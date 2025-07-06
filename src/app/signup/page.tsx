@@ -2,11 +2,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { MessageSquare } from "lucide-react"
 
-export default function SignupPage({
+export default async function SignupPage({
   searchParams,
 }: {
-  searchParams: { error?: string }
+  searchParams: Promise<{ error?: string }>
 }) {
+  const params = await searchParams
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -26,10 +27,10 @@ export default function SignupPage({
           </p>
         </div>
 
-        {searchParams?.error && (
+        {params?.error && (
           <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4">
             <p className="text-sm text-red-800 dark:text-red-200">
-              {searchParams.error}
+              {params.error}
             </p>
           </div>
         )}

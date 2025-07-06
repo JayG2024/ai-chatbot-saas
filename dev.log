@@ -1,0 +1,55 @@
+
+> ai-chatbot-saas@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.3.5
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.106:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1194ms
+ ✓ Compiled /middleware in 300ms (225 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1023ms (843 modules)
+ GET / 200 in 1308ms
+ ✓ Compiled in 126ms (338 modules)
+ ✓ Compiled /signup in 174ms (832 modules)
+Error: Route "/signup" used `searchParams.error`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at SignupPage (src/app/signup/page.tsx:29:9)
+  27 |         </div>
+  28 |
+> 29 |         {searchParams?.error && (
+     |         ^
+  30 |           <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4">
+  31 |             <p className="text-sm text-red-800 dark:text-red-200">
+  32 |               {searchParams.error}
+ GET /signup 200 in 241ms
+ ✓ Compiled /_not-found in 135ms (836 modules)
+ GET /terms 404 in 164ms
+ GET /terms 404 in 39ms
+ GET / 200 in 31ms
+ ✓ Compiled /demo in 158ms (861 modules)
+ GET /demo 200 in 178ms
+ GET / 200 in 39ms
+ ✓ Compiled in 290ms (872 modules)
+ GET / 200 in 47ms
+ ✓ Compiled /_not-found in 98ms (525 modules)
+ GET /pricing 404 in 132ms
+ GET /pricing 404 in 48ms
+ ✓ Compiled in 141ms (875 modules)
+ GET /pricing 404 in 27ms
+ GET /pricing 404 in 46ms
+ GET / 200 in 23ms
+ GET /docs 404 in 10ms
+ GET /docs 404 in 20ms
+ GET / 200 in 15ms
+ GET /signup 200 in 30ms
+ ✓ Compiled in 83ms (350 modules)
+ GET / 200 in 16ms
+ GET /terms 404 in 13ms
+ GET /terms 404 in 25ms
+ GET / 200 in 21ms
+ ✓ Compiled in 69ms (350 modules)
+ GET / 200 in 8ms
+[?25h
