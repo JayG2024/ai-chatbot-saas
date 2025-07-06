@@ -10,21 +10,15 @@ import {
   MessageSquare, 
   Clock, 
   Zap, 
-  TrendingUp,
   Users,
   BarChart3,
   Activity,
   Sparkles,
-  CheckCircle,
-  AlertCircle
+  CheckCircle
 } from "lucide-react"
 import { 
-  LineChart, 
-  Line, 
   AreaChart, 
   Area, 
-  BarChart, 
-  Bar, 
   PieChart, 
   Pie, 
   Cell,
@@ -32,10 +26,9 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  ResponsiveContainer,
-  Legend
+  ResponsiveContainer
 } from "recharts"
-import { format, subDays, startOfMonth } from "date-fns"
+import { format, subDays } from "date-fns"
 
 // Mock data for charts
 const generateUsageData = () => {
@@ -64,8 +57,8 @@ const recentActivity = [
 ]
 
 export default function DashboardDemoPage() {
-  const [usageData, setUsageData] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [usageData, setUsageData] = useState<Array<{date: string; messages: number; tokens: number}>>([])
+  const [, setIsLoading] = useState(true)
 
   useEffect(() => {
     // Simulate loading data
@@ -98,7 +91,7 @@ export default function DashboardDemoPage() {
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Welcome back, {profile.full_name || 'there'}!</h1>
-          <p className="text-muted-foreground">Here's an overview of your AI assistant usage</p>
+          <p className="text-muted-foreground">Here&apos;s an overview of your AI assistant usage</p>
         </div>
         <Link href="/demo">
           <Button size="lg" className="gap-2">

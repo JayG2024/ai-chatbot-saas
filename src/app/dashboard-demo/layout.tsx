@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { MessageSquare, Settings, CreditCard, LogOut, Home, ArrowLeft } from "lucide-react"
+import { MessageSquare, Settings, CreditCard, Home, ArrowLeft } from "lucide-react"
 
 export default function DashboardDemoLayout({
   children,
