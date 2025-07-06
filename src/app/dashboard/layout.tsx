@@ -9,6 +9,15 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Check if Supabase is configured
+  const isSupabaseConfigured = process.env.NEXT_PUBLIC_SUPABASE_URL && 
+    process.env.NEXT_PUBLIC_SUPABASE_URL !== 'https://placeholder.supabase.co'
+
+  if (!isSupabaseConfigured) {
+    // Redirect to demo dashboard if Supabase not configured
+    redirect("/dashboard-demo")
+  }
+
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
